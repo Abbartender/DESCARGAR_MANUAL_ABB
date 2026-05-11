@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Descargar Manual de Recetas ABB</title>
+  <meta name="description" content="Página de descarga del Manual de Recetas ABB.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#050505;
+      --panel:#101010;
+      --ink:#f5efe5;
+      --muted:#b9afa2;
+      --line:rgba(255,255,255,.13);
+      --gold:#d58a2a;
+      --gold2:#f4b15f;
+      --danger:#ffcf9d;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(213,138,42,.22), transparent 30%),
+        radial-gradient(circle at 86% 20%, rgba(255,255,255,.08), transparent 24%),
+        linear-gradient(180deg,#050505,#090909 48%,#050505);
+      min-height:100vh;
+    }
+    a{color:inherit;text-decoration:none}
+    .serif{font-family:"Cormorant Garamond", Georgia, serif}
+    .wrap{width:min(1120px,92vw);margin:auto}
+    header{
+      border-bottom:1px solid var(--line);
+      background:rgba(5,5,5,.72);
+      backdrop-filter:blur(18px);
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+    .nav{
+      height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:12px;
+      font-weight:800;
+    }
+    .mark{
+      width:44px;
+      height:44px;
+      border:1px solid var(--gold);
+      color:var(--gold2);
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      letter-spacing:0;
+      font-weight:800;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      padding:14px 20px;
+      font-weight:800;
+      cursor:pointer;
+      background:rgba(255,255,255,.05);
+      transition:.2s ease;
+      text-align:center;
+    }
+    .btn:hover{transform:translateY(-2px);border-color:rgba(213,138,42,.75)}
+    .btn.primary{
+      background:linear-gradient(135deg,var(--gold),var(--gold2));
+      color:#111;
+      border:0;
+    }
+    .btn.block{width:100%}
+    main{padding:64px 0}
+    .grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:38px;
+      align-items:start;
+    }
+    .panel{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.055);
+      border-radius:36px;
+      padding:34px;
+      box-shadow:0 32px 90px rgba(0,0,0,.36);
+    }
+    .kicker{
+      color:var(--gold2);
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:800;
+      margin-bottom:14px;
+    }
+    h1{
+      font-size:clamp(44px,7vw,82px);
+      line-height:.9;
+      letter-spacing:-.035em;
+      font-weight:500;
+      margin:0 0 20px;
+    }
+    h2{
+      font-size:clamp(30px,4vw,48px);
+      line-height:1;
+      font-weight:500;
+      margin:0 0 16px;
+    }
+    p{
+      color:var(--muted);
+      line-height:1.62;
+      font-size:16px;
+    }
+    .status{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      border:1px solid rgba(213,138,42,.35);
+      background:rgba(213,138,42,.12);
+      padding:10px 14px;
+      border-radius:999px;
+      color:#f2d5ae;
+      font-size:13px;
+      font-weight:800;
+      margin-bottom:22px;
+    }
+    .dot{
+      width:9px;
+      height:9px;
+      background:var(--gold2);
+      border-radius:50%;
+      box-shadow:0 0 22px rgba(244,177,95,.9);
+    }
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin:26px 0 12px;
+    }
+    .small{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+    .alert{
+      margin-top:20px;
+      border:1px solid rgba(244,177,95,.35);
+      background:rgba(244,177,95,.08);
+      padding:16px;
+      border-radius:22px;
+      color:#ead8c0;
+      font-size:14px;
+      line-height:1.5;
+    }
+    .preview{
+      position:relative;
+      min-height:520px;
+      overflow:hidden;
+    }
+    .preview::before{
+      content:"";
+      position:absolute;
+      inset:120px 40px;
+      background:radial-gradient(circle,rgba(213,138,42,.26),transparent 58%);
+      filter:blur(22px);
+    }
+    .shot{
+      position:absolute;
+      width:230px;
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow:0 28px 80px rgba(0,0,0,.55);
+      background:#111;
+    }
+    .shot img{display:block;width:100%}
+    .shot.one{left:20px;top:44px;transform:rotate(-7deg)}
+    .shot.two{right:18px;top:0;transform:rotate(5deg);z-index:2}
+    .shot.three{left:126px;bottom:28px;transform:rotate(1deg);z-index:3}
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:20px;
+    }
+    .step{
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.18);
+      border-radius:22px;
+      padding:18px;
+    }
+    .step strong{display:block;color:var(--gold2);margin-bottom:8px}
+    form{margin-top:18px}
+    label{
+      display:block;
+      font-size:13px;
+      color:var(--muted);
+      margin:10px 0 7px;
+    }
+    input,select,textarea{
+      width:100%;
+      border:1px solid var(--line);
+      background:#090909;
+      color:var(--ink);
+      border-radius:16px;
+      padding:14px;
+      font:inherit;
+      outline:none;
+    }
+    input:focus,select:focus,textarea:focus{border-color:rgba(213,138,42,.75)}
+    .footer{
+      border-top:1px solid var(--line);
+      padding:28px 0 44px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    @media(max-width:900px){
+      main{padding:38px 0}
+      .grid{grid-template-columns:1fr}
+      .panel{padding:24px;border-radius:28px}
+      .preview{min-height:460px}
+      .shot{width:205px}
+      .steps{grid-template-columns:1fr}
+      .nav .btn{display:none}
+    }
+    @media(max-width:520px){
+      .preview{min-height:410px}
+      .shot{width:178px}
+      .shot.three{left:70px}
+      .actions .btn{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <span class="mark">ABB</span>
+        <span>Manual de Recetas</span>
+      </a>
+      <a class="btn" href="mailto:agustinbalegno@hotmail.com?subject=No%20puedo%20descargar%20el%20Manual%20ABB">Soporte</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap grid">
+      <section class="panel">
+        <div class="status"><span class="dot"></span> Compra confirmada</div>
+        <div class="kicker">Página de descarga</div>
+        <h1 class="serif">Tu Manual ABB está listo.</h1>
+        <p>
+          Gracias por comprar el <strong>Manual de Recetas ABB</strong>. 
+          Descargá el archivo desde el botón principal y guardalo en tu teléfono o computadora para consultarlo cuando practiques.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="./assets/manual-recetas-abb.pdf" download="manual-recetas-abb.pdf">Descargar manual</a>
+          <a class="btn" href="./assets/manual-recetas-abb.pdf" target="_blank" rel="noopener">Abrir manual</a>
+          <a class="btn" href="https://wa.me/5493512857799?text=Hola%20Agust%C3%ADn%2C%20compr%C3%A9%20el%20Manual%20ABB%20y%20necesito%20ayuda%20con%20la%20descarga." target="_blank" rel="noopener">Ayuda por WhatsApp</a>
+        </div>
+
+        <p class="small">
+          Si el archivo no se descarga automáticamente, tocá “Abrir manual” y luego elegí descargar/guardar desde el visor del navegador.
+        </p>
+
+        <div class="alert">
+          <strong>Si tu descarga no inicia:</strong><br>
+          contactá a <a href="mailto:agustinbalegno@hotmail.com?subject=No%20puedo%20descargar%20el%20Manual%20ABB"><strong>agustinbalegno@hotmail.com</strong></a>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <strong>1. Descargá</strong>
+            Guardá el PDF en tu dispositivo.
+          </div>
+          <div class="step">
+            <strong>2. Practicá</strong>
+            Usalo como guía de consulta.
+          </div>
+          <div class="step">
+            <strong>3. Seguinos</strong>
+            Sumate al contenido de ABB.
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel preview" aria-label="Vista previa del manual">
+        <div class="shot one"><img src="assets/manual-01.jpg" alt="Portada Manual ABB"></div>
+        <div class="shot two"><img src="assets/manual-12.jpg" alt="Receta Manual ABB"></div>
+        <div class="shot three"><img src="assets/manual-41.jpg" alt="Página Manual ABB"></div>
+      </aside>
+    </div>
+
+    <section class="wrap" style="margin-top:28px">
+      <div class="grid">
+        <div class="panel">
+          <div class="kicker">Bonus y próximas clases</div>
+          <h2 class="serif">Dejá tus datos y seguí conectado.</h2>
+          <p>
+            Completá este formulario para recibir actualizaciones del manual, nuevos materiales, fechas de cursos y contenidos de entrenamiento de ABB.
+          </p>
+
+          <form action="https://formspree.io/f/xgodrolq" method="POST">
+            <label>Nombre y apellido</label>
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+
+            <label>Email</label>
+            <input type="email" name="email" placeholder="tu@email.com" required>
+
+            <label>WhatsApp</label>
+            <input type="tel" name="whatsapp" placeholder="+54 / +52 / +1">
+
+            <label>País</label>
+            <input type="text" name="pais" placeholder="Argentina, México, Estados Unidos, etc.">
+
+            <label>¿Qué buscás con la coctelería?</label>
+            <select name="interes">
+              <option value="">Elegí una opción</option>
+              <option>Aprender como hobby</option>
+              <option>Buscar una salida laboral</option>
+              <option>Trabajar mejor detrás de una barra</option>
+              <option>Abrir o mejorar un bar</option>
+            </select>
+
+            <input type="hidden" name="producto" value="Manual de recetas ABB">
+            <input type="hidden" name="origen" value="Pagina de descarga">
+
+            <div class="actions">
+              <button class="btn primary" type="submit">Enviar mis datos</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="panel">
+          <div class="kicker">Después del manual</div>
+          <h2 class="serif">Esto puede ser el inicio.</h2>
+          <p>
+            Si este material te sirve, el siguiente paso es aprender técnica, mise en place, método de trabajo, servicio y comunicación real detrás de una barra.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="https://wa.me/5493512857799?text=Hola%20Agust%C3%ADn%2C%20compr%C3%A9%20el%20Manual%20ABB%20y%20quiero%20informaci%C3%B3n%20sobre%20los%20cursos." target="_blank" rel="noopener">Consultar cursos</a>
+            <a class="btn" href="https://www.agustinbalegnobartender.com" target="_blank" rel="noopener">Ver sitio web</a>
+            <a class="btn" href="https://youtube.com/@agustinbalegnobartender7980" target="_blank" rel="noopener">YouTube</a>
+          </div>
+          <p class="small">
+            El acceso al material es digital. No incluye clases en vivo. Una vez realizada la compra, recibirás acceso al archivo de descarga.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <strong>Agustín Balegno · ABB International Bartender Academy</strong><br>
+      agustinbalegnobartender.com · agustinbalegno@hotmail.com · WhatsApp +54 9 351 285 7799
+    </div>
+  </footer>
+</body>
+</html>

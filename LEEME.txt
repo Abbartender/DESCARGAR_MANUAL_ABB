@@ -1,0 +1,23 @@
+LANDING DE DESCARGA - MANUAL ABB INTEGRADA V2
+
+Cambios:
+- El botón de descarga usa ruta relativa segura:
+  ./assets/manual-recetas-abb.pdf
+- Se agregó un segundo botón:
+  Abrir manual
+- Se agregó:
+  test-descarga.html
+
+Para probar en Vercel:
+1. Abrí:
+   https://TU-DOMINIO.vercel.app/test-descarga.html
+
+2. Probá:
+   - Descargar PDF
+   - Abrir PDF
+
+3. Si no funciona, revisá que en GitHub esté esta ruta exacta:
+   assets/manual-recetas-abb.pdf
+
+URL para Mercado Pago:
+https://TU-DOMINIO.vercel.app/gracias.html
